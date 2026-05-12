@@ -48,6 +48,13 @@ ARTICLES = [
         "date": "2026-05-05", "category": "Open Source",
         "source_html": "show-hn-live-sun-moon-dashboard-nasa-footage-guide.html",
     },
+    {
+        "title": "I Forked a 140k+ Star AI Project and Customized It for Android — Here's Everything I Changed",
+        "desc": "How I customized NousResearch/hermes-agent for Termux ARM64 — the full technical breakdown of ARM64 compat, venv fixes, Python 3.12 patches, and more.",
+        "slug": "fork-customization-post",
+        "date": "2026-05-11", "category": "AI Automation",
+        "source_md": "fork-customization-post.md",
+    },
 ]
 
 CSS = """    * { margin: 0; padding: 0; box-sizing: border-box; }

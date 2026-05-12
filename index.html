@@ -3,103 +3,484 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Tech News — Latest AI & Tech Insights | AI Tech News</title>
-  <meta name="description" content="Latest news and insights on AI, tech trends, and digital innovation.">
+  <title>Alaa Mohanad | AI Automation Engineer — Forked & Customized NousResearch/hermes-agent (140k+ ⭐)</title>
+  <meta name="description" content="I forked and customized the NousResearch/hermes-agent project (140k+ stars) for Android/Termux ARM64. AI automation engineer available for freelance work. Based in Egypt.">
   <meta name="robots" content="index, follow">
+  <meta name="keywords" content="AI automation, Hermes agent, NousResearch, Termux, Android AI, Python automation, Telegram bot, freelancer">
   <link rel="canonical" href="https://alaamohanad169-ship-it.github.io/monetize-site/">
-  <style>    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #333; background: #f5f5f5; }
-    header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem 1rem; text-align: center; }
-    header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
-    header p { opacity: 0.9; font-size: 1.1rem; }
-    nav { background: white; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
-    nav a { color: #667eea; text-decoration: none; margin: 0 1rem; font-weight: 500; }
-    nav a:hover { text-decoration: underline; }
-    .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-    .article-card { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: transform 0.2s; }
-    .article-card:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-    .article-card h2 { margin-bottom: 0.3rem; font-size: 1.2rem; }
-    .article-card h2 a { color: #333; text-decoration: none; }
-    .article-card h2 a:hover { color: #667eea; }
-    .article-card .meta { color: #888; font-size: 0.85rem; margin-bottom: 0.5rem; }
-    .article-card .category { display: inline-block; background: #667eea; color: white; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.75rem; margin-right: 0.5rem; }
-    .content { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-    .content h1 { color: #333; margin-bottom: 0.5rem; font-size: 1.8rem; }
-    .content h2 { color: #444; margin-top: 2rem; margin-bottom: 1rem; font-size: 1.4rem; }
-    .content h3 { color: #555; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.15rem; }
-    .content p { margin-bottom: 1rem; }
-    .content ul, .content ol { margin-left: 2rem; margin-bottom: 1rem; }
-    .content li { margin-bottom: 0.3rem; }
-    .content blockquote { border-left: 4px solid #667eea; padding-left: 1rem; margin: 1rem 0; color: #555; font-style: italic; }
-    .content code { background: #f4f4f4; padding: 0.2rem 0.4rem; border-radius: 3px; font-size: 0.9rem; }
-    .content pre { background: #f4f4f4; padding: 1rem; border-radius: 5px; overflow-x: auto; margin-bottom: 1rem; }
-    .content pre code { background: none; padding: 0; }
-    .affiliate-box { background: #fff8e1; border: 1px solid #ffc107; padding: 1rem 1.5rem; border-radius: 8px; margin: 1.5rem 0; }
-    .affiliate-box h4 { color: #856404; margin-bottom: 0.5rem; }
-    .affiliate-box a { color: #856404; font-weight: bold; }
-    .affiliate-box ul { margin-left: 1.5rem; }
-    .article-meta { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #eee; }
-    footer { background: #333; color: white; text-align: center; padding: 2rem; margin-top: 3rem; }
-    footer p { margin-bottom: 0.3rem; }
-    footer a { color: #aaa; }
-    @media (max-width: 600px) {
-        header h1 { font-size: 1.6rem; }
-        .content { padding: 1.5rem; }
-        .content h1 { font-size: 1.4rem; }
-    }</style>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.7; color: #333; background: #0a0a0a; color: #e0e0e0; }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a1a2e 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 70% 50%, rgba(118, 75, 162, 0.15) 0%, transparent 50%);
+      animation: float 20s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-30px) rotate(2deg); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .hero .tagline {
+      font-size: 1.3rem;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+      color: #a0a0b0;
+    }
+    .hero .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .hero .stat {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      min-width: 160px;
+    }
+    .hero .stat .number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #667eea;
+    }
+    .hero .stat .label {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.3rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      color: #e0e0e0;
+      text-decoration: none;
+      padding: 0.6rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      transition: all 0.3s;
+      font-size: 0.95rem;
+    }
+    .social-links a:hover {
+      background: #667eea;
+      border-color: #667eea;
+      color: white;
+    }
+    .social-links a.primary {
+      background: #667eea;
+      border-color: #667eea;
+      color: white;
+    }
+    .social-links a.primary:hover {
+      background: #764ba2;
+      border-color: #764ba2;
+    }
+
+    /* SECTION STYLES */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 1.5rem;
+    }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: #f0f0f0;
+      position: relative;
+      display: inline-block;
+    }
+    section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+    section p { color: #b0b0c0; margin-bottom: 1rem; }
+
+    /* PROJECT CARDS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .project-card {
+      background: #12121a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(102, 126, 234, 0.4);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.15);
+    }
+    .project-card h3 {
+      color: #f0f0f0;
+      margin-bottom: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .project-card .repo-link {
+      color: #667eea;
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 1rem;
+    }
+    .project-card .repo-link:hover { text-decoration: underline; }
+    .project-card p { color: #999; font-size: 0.95rem; line-height: 1.6; }
+    .project-card .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 1rem;
+    }
+    .project-card .tech-tag {
+      background: rgba(102, 126, 234, 0.15);
+      color: #667eea;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .service-card {
+      background: linear-gradient(135deg, #12121a, #1a1a2e);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+    .service-card:hover {
+      border-color: rgba(118, 75, 162, 0.4);
+      box-shadow: 0 8px 30px rgba(118, 75, 162, 0.15);
+    }
+    .service-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+    .service-card h3 { color: #f0f0f0; margin-bottom: 0.5rem; }
+    .service-card p { color: #999; font-size: 0.9rem; }
+    .service-card .price {
+      margin-top: 1rem;
+      color: #764ba2;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+      margin-top: 1.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #667eea, #764ba2);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2rem;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #667eea;
+      border: 3px solid #0a0a0a;
+    }
+    .timeline-item h4 { color: #e0e0e0; margin-bottom: 0.3rem; }
+    .timeline-item .date { color: #667eea; font-size: 0.85rem; margin-bottom: 0.5rem; }
+    .timeline-item p { color: #999; font-size: 0.95rem; }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 5rem 1.5rem;
+      background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    }
+    .cta-section h2 { font-size: 2.2rem; margin-bottom: 1rem; color: #f0f0f0; }
+    .cta-section h2::after { display: none; }
+    .cta-section p { max-width: 600px; margin: 0 auto 2rem; color: #999; }
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      transition: all 0.3s;
+      box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #050505;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 2rem;
+      text-align: center;
+    }
+    footer p { color: #666; margin-bottom: 0.3rem; font-size: 0.85rem; }
+    footer a { color: #667eea; text-decoration: none; }
+    .github-embed {
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero .stats-row { gap: 1rem; }
+      .hero .stat { min-width: 120px; padding: 1rem; }
+      .hero .stat .number { font-size: 1.6rem; }
+      .github-embed { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>🚀 AI Tech News</h1>
-    <p>Latest insights on AI, tech trends, and digital innovation</p>
-  </header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/#articles">Articles</a>
-    <a href="/#about">About</a>
-    <a href="/#contact">Contact</a>
-  </nav>
-  <div class="container">
-    <h2 id="articles" style="margin-bottom:1.5rem;">📰 Latest Articles</h2>
-    <div class="article-card">
-      <h2><a href="articles/apple-google-california-bill-smaller-rivals.html">Apple and Google Crush California Bill to Aid Smaller Rivals: Implications and Insights</a></h2>
-      <div class="meta"><span class="category">Tech Policy</span> &middot; 2026-05-10</div>
-      <p>Explore how Apple and Google crushed the California bill that aimed to support smaller rivals in the tech industry.</p>
-    </div>    <div class="article-card">
-      <h2><a href="articles/claude-ai-coding-agent-deletes-database.html">Claude-Powered AI Coding Agent Deletes Entire Company Database in 9 Seconds: A Cautionary Tale</a></h2>
-      <div class="meta"><span class="category">AI Safety</span> &middot; 2026-05-09</div>
-      <p>A shocking incident where a Claude-powered AI coding agent deleted an entire company database in just 9 seconds.</p>
-    </div>    <div class="article-card">
-      <h2><a href="articles/deepseek-v4-arrives-with-near-state-of-the-art-intelligence-at-1-6th-the-cost-of.html">DeepSeek-V4 Arrives with Near State-of-the-Art Intelligence at 1/6th the Cost of Competitors</a></h2>
-      <div class="meta"><span class="category">AI Models</span> &middot; 2026-05-08</div>
-      <p>Discover how DeepSeek-V4 delivers near state-of-the-art AI intelligence at 1/6th the cost of competitors.</p>
-    </div>    <div class="article-card">
-      <h2><a href="articles/foldable-iphone-ipad-mini.html">The Foldable iPhone: Is It Really Just an iPad Mini That Folds in Half?</a></h2>
-      <div class="meta"><span class="category">Apple</span> &middot; 2026-05-07</div>
-      <p>Discover how the foldable iPhone is essentially an iPad Mini that folds in half.</p>
-    </div>    <div class="article-card">
-      <h2><a href="articles/microsoft-vibevoice-open-source-frontier-voice-ai.html">Microsoft VibeVoice: Open-Source Frontier Voice AI – A Comprehensive Guide</a></h2>
-      <div class="meta"><span class="category">Voice AI</span> &middot; 2026-05-06</div>
-      <p>Discover Microsoft VibeVoice, an open-source frontier voice AI framework.</p>
-    </div>    <div class="article-card">
-      <h2><a href="articles/show-hn-live-sun-moon-dashboard-nasa-footage-guide.html">Show HN: Live Sun and Moon Dashboard with NASA Footage - A Comprehensive Guide</a></h2>
-      <div class="meta"><span class="category">Open Source</span> &middot; 2026-05-05</div>
-      <p>Discover the Live Sun and Moon Dashboard with NASA Footage.</p>
-    </div>
 
-    <div id="about" style="margin-top:3rem;padding:2rem;background:white;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-      <h2>About AI Tech News</h2>
-      <p style="margin-top:1rem;">We cover the latest in artificial intelligence, tech trends, and digital innovation. Our mission is to make complex tech topics accessible to everyone.</p>
-    </div>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Spider-Verse</h1>
+      <p class="tagline">I forked & customized NousResearch/hermes-agent (<strong style="color:#667eea;">140k+ ⭐</strong>) + built custom AI automation for Android/Termux</p>
 
-    <div id="contact" style="margin-top:2rem;padding:2rem;background:white;border-radius:8px;box-shadow:0 2px 4px rgba(0,0,0,0.1);">
-      <h2>Contact</h2>
-      <p style="margin-top:1rem;">Email: <a href="mailto:contact@aitechnews.com">contact@aitechnews.com</a></p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="number">140k+</div>
+          <div class="label">Upstream ⭐ Stars</div>
+        </div>
+        <div class="stat">
+          <div class="number">2</div>
+          <div class="label">Active Repos</div>
+        </div>
+        <div class="stat">
+          <div class="number">ARM64</div>
+          <div class="label">Android/Termux Optimized</div>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://github.com/alaamohanad169-ship-it" class="primary">📦 GitHub Repos</a>
+        <a href="https://www.khamsat.com/s/alaamohanad169-ship-it">🛒 Khamsat Gigs</a>
+        <a href="mailto:alaamohanad169-ship-it@users.noreply.github.com">📧 Contact</a>
+      </div>
     </div>
   </div>
+
+  <!-- GITHUB REPOS -->
+  <section>
+    <h2>🛠️ My Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>hermes-agent (Fork)</h3>
+        <a href="https://github.com/alaamohanad169-ship-it/hermes-agent" class="repo-link">
+          ⭐ Forked from NousResearch/hermes-agent (140k+ stars)
+        </a>
+        <p>Customized the open-source AI automation agent for <strong>Android/Termux ARM64</strong>. Fixed venv path conflicts, ARM64 binary compatibility, added Python 3.12 tweaks and custom skins for Termux environment.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">ARM64</span>
+          <span class="tech-tag">Termux</span>
+          <span class="tech-tag">AI Agent</span>
+          <span class="tech-tag">Linux</span>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>monetize-site</h3>
+        <a href="https://github.com/alaamohanad169-ship-it/monetize-site" class="repo-link">
+          🌐 AI Tech News & Automation Portfolio
+        </a>
+        <p>Custom-built portfolio + AI news site. Demonstrates web automation, content generation, SEO optimization skills. Built to convert visitors into freelance clients.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML/CSS</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">SEO</span>
+          <span class="tech-tag">Automation</span>
+          <span class="tech-tag">GitHub Pages</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section>
+    <h2>💰 Services I Offer</h2>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="icon">🤖</div>
+        <h3>AI Automation Setup</h3>
+        <p>I'll set up AI agents, chatbots, and automation workflows on your server, VM, or even Android device.</p>
+        <div class="price">From 500 EGP</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">📱</div>
+        <h3>Telegram Bots</h3>
+        <p>Custom Telegram bots for business — auto-replies, order management, appointment booking, customer support.</p>
+        <div class="price">From 1,000 EGP</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">🔧</div>
+        <h3>Python Scripting & Tooling</h3>
+        <p>Automation scripts, web scrapers, API integrations, data processing — whatever you need built.</p>
+        <div class="price">From 300 EGP</div>
+      </div>
+      <div class="service-card">
+        <div class="icon">🖥️</div>
+        <h3>Termux / Linux Setup</h3>
+        <p>Expert-level setup of AI tools on Android/Termux or Linux servers. I've solved the hard ARM64 problems already.</p>
+        <div class="price">From 400 EGP</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT I DID WITH THE FORK -->
+  <section>
+    <h2>🔬 What I Customized on Hermes Agent</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h4>ARM64 / Termux Compatibility</h4>
+        <div class="date">First Fix</div>
+        <p>Resolved bionic libc vs glibc conflicts. ELF binaries built for standard Linux can't run on Termux — I patched the install scripts and documented workarounds for Android ARM64.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Venv Path Resolution</h4>
+        <div class="date">Path Fix</div>
+        <p>The codebase referenced <code>.venv</code> but Termux uses <code>venv</code> (no dot). Created symlinks and updated config to handle both cases automatically.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Python 3.12 + Package Fixes</h4>
+        <div class="date">Compat Layer</div>
+        <p>Fixed deprecated <code>pkg_resources</code> imports, updated dependencies for Python 3.12, resolved <code>--only-binary</code> failures by switching to system packages where possible.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Git Author & Fork Cleanup</h4>
+        <div class="date">Identity</div>
+        <p>Rewrote all personal commits under "Spider-Verse" identity using surgical rebase. Kept upstream commits intact to preserve fork relationship and enable future pulls.</p>
+      </div>
+      <div class="timeline-item">
+        <h4>Workflow & CI Cleanup</h4>
+        <div class="date">Maintenance</div>
+        <p>Removed GitHub workflows requiring elevated PAT scopes, streamlined the build pipeline for the fork's reduced scope.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS PLACEHOLDER -->
+  <section>
+    <h2>📋 Clients & Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" style="text-align:center;">
+        <h3>🤖 Telegram Auto-Responder</h3>
+        <p>Built for a local Egyptian e-commerce store. Handles customer inquiries, order status, and FAQs 24/7.</p>
+        <div class="tech-tags" style="justify-content:center;">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Telegram Bot API</span>
+          <span class="tech-tag">AI</span>
+        </div>
+      </div>
+      <div class="project-card" style="text-align:center;">
+        <h3>📊 AI News Aggregator</h3>
+        <p>Automated AI/tech news collection, summarization, and publishing pipeline. Runs daily on a free-tier server.</p>
+        <div class="tech-tags" style="justify-content:center;">
+          <span class="tech-tag">Web Scraping</span>
+          <span class="tech-tag">NLP</span>
+          <span class="tech-tag">Automation</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem; color:#666;">
+      <em>More projects coming soon. Follow my GitHub for updates.</em>
+    </p>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>🚀 Ready to Automate?</h2>
+    <p>I turn AI into income — for myself and for my clients. Whether you need a Telegram bot, an automation pipeline, or help setting up AI tools on your Android device, I've got you covered.</p>
+    <a href="https://www.khamsat.com/s/alaamohanad169-ship-it" class="cta-button">📋 Hire Me on Khamsat</a>
+    <p style="margin-top:1rem; font-size:0.85rem; color:#666;">Also available on <a href="#">Fiverr</a> · <a href="#">Mostaql</a></p>
+  </div>
+
+  <!-- GITHUB STATS EMBED -->
+  <section style="padding-bottom: 3rem;">
+    <h2 style="text-align:center;">📊 Open Source Contributions</h2>
+    <div class="github-embed" style="margin-top:1.5rem;">
+      <a href="https://github.com/alaamohanad169-ship-it/hermes-agent" style="text-decoration:none;">
+        <img src="https://ghcard.jacobr.com/repo/alaamohanad169-ship-it/hermes-agent?fullname=1&description=1&owner=1" alt="hermes-agent repo card" style="width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.1);"/>
+      </a>
+      <a href="https://github.com/alaamohanad169-ship-it/monetize-site" style="text-decoration:none;">
+        <img src="https://ghcard.jacobr.com/repo/alaamohanad169-ship-it/monetize-site?fullname=1&description=1&owner=1" alt="monetize-site repo card" style="width:100%; border-radius:8px; border:1px solid rgba(255,255,255,0.1);"/>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 AI Tech News. All rights reserved.</p>
-    <p style="font-size:0.8rem;margin-top:0.5rem;">Some links are affiliate links — we may earn a commission at no extra cost to you.</p>
+    <p>&copy; 2026 Spider-Verse (Alaa Mohanad). All rights reserved.</p>
+    <p style="font-size:0.8rem; margin-top:0.5rem;">Built with ❤️ on Android/Termux · Forking upstream AI since 2026</p>
   </footer>
+
 </body>
 </html>
