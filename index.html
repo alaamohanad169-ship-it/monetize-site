@@ -3,339 +3,478 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alaa Mohanad | AI Automation Engineer</title>
-  <meta name="description" content="AI Automation Engineer specializing in Python, Telegram bots, AI agents, and Android/Termux deployment. Available for freelance work.">
+  <title>Alaa Mohanad | AI Agent Developer & Automation Engineer</title>
+  <meta name="description" content="AI Automation Engineer specializing in Python, Telegram bots, AI agents on Android/Termux, and web scraping. Open-source contributor. Available for freelance work.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://alaamohanad169-ship-it.github.io/monetize-site/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0a0a0f;
+      --bg2: #111118;
+      --bg3: #1a1a24;
+      --border: rgba(255,255,255,0.08);
+      --text: #e4e4e7;
+      --text2: #a1a1aa;
+      --text3: #71717a;
+      --accent: #667eea;
+      --accent2: #764ba2;
+      --accent-glow: rgba(102,126,234,0.3);
+      --green: #34d399;
+      --yellow: #fbbf24;
+      --red: #f87171;
+      --cyan: #22d3ee;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.7; color: #e0e0e0; background: #0a0a0a; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.7; color: var(--text); background: var(--bg); overflow-x: hidden; }
+
+    /* PARTICLES */
+    .particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+    .particle { position: absolute; width: 2px; height: 2px; background: var(--accent); border-radius: 50%; opacity: 0.3; animation: drift linear infinite; }
+    @keyframes drift { to { transform: translateY(-100vh) rotate(720deg); } }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; background: rgba(10,10,15,0.8); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .nav-logo { font-weight: 800; font-size: 1.2rem; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-family: 'JetBrains Mono', monospace; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--text2); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent); }
 
     /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #1a1a2e 100%);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle at 30% 50%, rgba(102,126,234,0.15) 0%, transparent 50%),
-                  radial-gradient(circle at 70% 50%, rgba(118,75,162,0.15) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-30px) rotate(2deg); }
-    }
-    .hero-content { position: relative; z-index: 1; max-width: 800px; }
-    .hero h1 {
-      font-size: 3.5rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.5rem;
-    }
-    .hero .tagline { font-size: 1.3rem; color: #a0a0b0; margin-bottom: 2rem; }
-    .hero .stats-row {
-      display: flex; justify-content: center; gap: 2rem;
-      margin: 2rem 0; flex-wrap: wrap;
-    }
-    .hero .stat {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 12px;
-      padding: 1.5rem 2rem;
-      min-width: 150px;
-    }
-    .hero .stat .number { font-size: 2rem; font-weight: 800; color: #667eea; }
-    .hero .stat .label { font-size: 0.8rem; color: #888; margin-top: 0.3rem; }
-    .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
-    .btn {
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.3s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn-primary { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; }
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(102,126,234,0.4); }
-    .btn-secondary { background: transparent; color: #667eea; border: 2px solid #667eea; }
-    .btn-secondary:hover { background: rgba(102,126,234,0.1); }
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 6rem 2rem 4rem; position: relative; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(102,126,234,0.12) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(118,75,162,0.08) 0%, transparent 40%); }
+    .hero-content { position: relative; z-index: 1; max-width: 900px; }
+    .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.2); border-radius: 50px; font-size: 0.85rem; color: var(--green); margin-bottom: 2rem; font-weight: 500; }
+    .status-badge .dot { width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1.5rem; }
+    .hero h1 .gradient { background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #667eea); background-size: 300% 300%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: gradient-shift 5s ease infinite; }
+    @keyframes gradient-shift { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+    .typing-container { font-family: 'JetBrains Mono', monospace; font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--text2); margin-bottom: 2rem; min-height: 2em; }
+    .typing-cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--accent); margin-left: 2px; animation: blink 1s infinite; vertical-align: text-bottom; }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    .hero-desc { font-size: 1.1rem; color: var(--text2); max-width: 600px; margin: 0 auto 2.5rem; }
+    .cta-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn { padding: 0.9rem 2rem; border-radius: 10px; font-size: 1rem; font-weight: 600; text-decoration: none; transition: all 0.3s; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #fff; }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+    .btn-secondary { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background: var(--border); transform: translateY(-2px); }
+    .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(10px); } }
+    .scroll-indicator svg { width: 24px; height: 24px; color: var(--text3); }
 
     /* SECTIONS */
-    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
-    section h2 {
-      font-size: 2.2rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
+    section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
+    .section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .section-subtitle { font-size: 1.1rem; color: var(--text2); max-width: 600px; margin-bottom: 3rem; }
+
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .about-text p { color: var(--text2); margin-bottom: 1.5rem; font-size: 1.05rem; }
+    .highlight-box { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+    .highlight-box h3 { font-size: 1.1rem; margin-bottom: 1rem; color: var(--accent); }
+    .terminal { background: #0d1117; border-radius: 12px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; }
+    .terminal-bar { background: #161b22; padding: 0.6rem 1rem; display: flex; gap: 0.4rem; }
+    .terminal-bar span { width: 10px; height: 10px; border-radius: 50%; }
+    .terminal-bar .red { background: #ff5f56; }
+    .terminal-bar .yellow { background: #ffbd2e; }
+    .terminal-bar .green { background: #27ca40; }
+    .terminal-body { padding: 1.2rem; color: #c9d1d9; }
+    .terminal-body .prompt { color: var(--green); }
+    .terminal-body .cmd { color: var(--text); }
+    .terminal-body .output { color: var(--text3); }
+    .terminal-body .accent { color: var(--cyan); }
+
+    /* SKILLS */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+    .skill-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; transition: all 0.3s; position: relative; overflow: hidden; }
+    .skill-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); opacity: 0; transition: opacity 0.3s; }
+    .skill-card:hover { transform: translateY(-4px); border-color: rgba(102,126,234,0.3); }
+    .skill-card:hover::before { opacity: 1; }
+    .skill-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .skill-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .skill-card p { font-size: 0.85rem; color: var(--text3); }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.8rem; }
+    .skill-tag { font-size: 0.7rem; padding: 0.2rem 0.6rem; background: rgba(102,126,234,0.1); color: var(--accent); border-radius: 50px; font-weight: 500; }
 
     /* SERVICES */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: all 0.3s;
-    }
-    .service-card:hover {
-      border-color: rgba(102,126,234,0.4);
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-    }
-    .service-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
-    .service-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #fff; }
-    .service-card p { color: #999; font-size: 0.95rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .service-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: all 0.3s; }
+    .service-card:hover { border-color: rgba(102,126,234,0.3); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+    .service-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.2rem; }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.6rem; }
+    .service-card p { font-size: 0.9rem; color: var(--text2); margin-bottom: 1rem; }
+    .service-price { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--accent); font-weight: 600; }
 
-    /* PRODUCTS */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    .product-card {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      padding: 2rem;
-      text-align: center;
-      transition: all 0.3s;
-    }
-    .product-card:hover { border-color: rgba(102,126,234,0.4); transform: translateY(-4px); }
-    .product-card .price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: #667eea;
-      margin: 1rem 0;
-    }
-    .product-card .price span { font-size: 1rem; color: #888; }
-    .product-card ul { list-style: none; margin: 1.5rem 0; text-align: left; }
-    .product-card ul li { padding: 0.4rem 0; color: #bbb; font-size: 0.95rem; }
-    .product-card ul li::before { content: '✅ '; }
+    /* PROJECTS */
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; }
+    .project-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all 0.3s; }
+    .project-card:hover { border-color: rgba(102,126,234,0.3); transform: translateY(-4px); }
+    .project-header { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .project-header h3 { font-size: 1.1rem; font-weight: 700; }
+    .project-header .stars { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: var(--yellow); }
+    .project-body { padding: 1.5rem; }
+    .project-body p { font-size: 0.9rem; color: var(--text2); margin-bottom: 1rem; }
+    .project-lang { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+    .lang-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .project-links { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; gap: 1rem; }
+    .project-links a { font-size: 0.85rem; color: var(--accent); text-decoration: none; font-weight: 500; }
+    .project-links a:hover { text-decoration: underline; }
 
-    /* TECH STACK */
-    .tech-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-    }
-    .tech-tag {
-      background: rgba(102,126,234,0.1);
-      border: 1px solid rgba(102,126,234,0.3);
-      color: #667eea;
-      padding: 0.5rem 1.2rem;
-      border-radius: 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
+    /* STATS */
+    .stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+    .stat-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; text-align: center; }
+    .stat-number { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat-label { font-size: 0.85rem; color: var(--text3); margin-top: 0.5rem; }
 
     /* CONTACT */
     .contact-section { text-align: center; }
-    .contact-section p { color: #999; margin-bottom: 2rem; font-size: 1.1rem; }
-    .platform-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    .platform-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.8rem 1.5rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 10px;
-      color: #ccc;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-    .platform-link:hover { border-color: #667eea; color: #fff; }
+    .contact-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
+    .contact-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.5rem; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); font-weight: 500; transition: all 0.3s; font-size: 0.95rem; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
 
     /* FOOTER */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #555;
-      font-size: 0.85rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-    }
+    footer { padding: 3rem 2rem; text-align: center; border-top: 1px solid var(--border); }
+    footer p { color: var(--text3); font-size: 0.85rem; }
+    footer .heart { color: var(--red); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* RESPONSIVE */
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
-      .hero .stats-row { gap: 1rem; }
-      .hero .stat { padding: 1rem; min-width: 120px; }
-      section { padding: 3rem 1.5rem; }
-      section h2 { font-size: 1.8rem; }
+      section { padding: 4rem 1.5rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- PARTICLES -->
+  <div class="particles" id="particles"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">&lt;Spider-Verse /&gt;</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
   <!-- HERO -->
   <section class="hero">
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <h1>Alaa Mohanad</h1>
-      <p class="tagline">AI Automation Engineer — I build intelligent bots and automation tools that save businesses time and money.</p>
-      <div class="stats-row">
-        <div class="stat">
-          <div class="number">145K+</div>
-          <div class="label">Stars on framework I work with</div>
-        </div>
-        <div class="stat">
-          <div class="number">22K+</div>
-          <div class="label">Developer community</div>
-        </div>
-        <div class="stat">
-          <div class="number">24/7</div>
-          <div class="label">AI agents I deploy</div>
+      <div class="status-badge"><span class="dot"></span> Available for freelance work</div>
+      <h1>I build <span class="gradient">AI agents &amp; automation</span> that work while you sleep.</h1>
+      <div class="typing-container" id="typing"></div>
+      <p class="hero-desc">AI Agent Developer from Alexandria, Egypt. I specialize in building intelligent bots, automation systems, and AI tools — running entirely on Android/Termux.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">💬 Let's Talk</a>
+        <a href="#projects" class="btn btn-secondary">🔬 View Projects</a>
+      </div>
+    </div>
+    <div class="scroll-indicator"><svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label">// 01 — About Me</div>
+    <h2 class="section-title fade-up">Not your average developer</h2>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>I'm <strong>Alaa Mohanad</strong>, an AI Agent Developer and Automation Engineer based in Alexandria, Egypt. I run a full AI development workflow from my Android phone using Termux — no cloud, no desktop, no compromises.</p>
+        <p>I'm an active contributor to the <strong>Hermes Agent</strong> project by NousResearch, with an open PR for a profiling module (998 lines of Python). I also maintain daily automated workflows, Telegram bots, and custom AI tooling.</p>
+        <p style="color: var(--accent); font-weight: 600;">🚀 Unique edge: I develop, deploy, and manage AI agents entirely from a mobile device. ARM64 Termux is my production environment.</p>
+      </div>
+      <div class="highlight-box">
+        <h3>🖥 Live Terminal</h3>
+        <div class="terminal">
+          <div class="terminal-bar"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="terminal-body">
+            <div><span class="prompt">$</span> <span class="cmd">hermes status</span></div>
+            <div class="output">Hermes Agent v0.13.0 — Online</div>
+            <div class="output">Provider: OpenRouter · Model: owl-alpha</div>
+            <div class="output">Skills: 12 loaded · Cron: 2 active</div>
+            <div class="output">Platform: Android/Termux (ARM64)</div>
+            <div><span class="prompt">$</span> <span class="cmd">python bot.py</span></div>
+            <div class="accent">✓ Telegram bot connected</div>
+            <div class="accent">✓ AI agent running</div>
+            <div class="active">3 processes · 24/7 uptime</div>
+          </div>
         </div>
       </div>
-      <div class="cta-buttons">
-        <a href="#services" class="btn btn-primary">Hire Me</a>
-        <a href="#products" class="btn btn-secondary">Digital Products</a>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-label">// 02 — Skills</div>
+    <h2 class="section-title fade-up">My technical arsenal</h2>
+    <p class="section-subtitle fade-up">From AI models to bare-metal automation — I cover the full stack.</p>
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🤖</div>
+        <h3>AI &amp; LLMs</h3>
+        <p>Building agents that reason, plan, and execute tasks autonomously.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Claude</span>
+          <span class="skill-tag">GPT-4</span>
+          <span class="skill-tag">OpenRouter</span>
+          <span class="skill-tag">RAG</span>
+          <span class="skill-tag">Prompt Engineering</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🐍</div>
+        <h3>Python Development</h3>
+        <p>Production-grade scripts, bots, scrapers, and backend systems.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Python 3.13</span>
+          <span class="skill-tag">AsyncIO</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">FastAPI</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">📱</div>
+        <h3>Android / Termux</h3>
+        <p>Full ARM64 development environment on mobile. My secret weapon.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Termux</span>
+          <span class="skill-tag">ARM64</span>
+          <span class="skill-tag">Bash</span>
+          <span class="skill-tag">SSH</span>
+          <span class="skill-tag">Cron</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">💬</div>
+        <h3>Bot Development</h3>
+        <p>Telegram and Discord bots with AI integration and automation.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">Telegram API</span>
+          <span class="skill-tag">Discord.py</span>
+          <span class="skill-tag">Webhooks</span>
+          <span class="skill-tag">Inline Bots</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">🕷</div>
+        <h3>Web Scraping</h3>
+        <p>Extracting data at scale — structured, cleaned, and delivered.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">BeautifulSoup</span>
+          <span class="skill-tag">Selenium</span>
+          <span class="skill-tag">Firecrawl</span>
+          <span class="skill-tag">CSV/JSON Export</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-icon">⚙️</div>
+        <h3>DevOps &amp; Automation</h3>
+        <p>Cron jobs, CI/CD, git workflows, and 24/7 process management.</p>
+        <div class="skill-tags">
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">Systemd</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
-    <h2>Services</h2>
+    <div class="section-label">// 03 — Services</div>
+    <h2 class="section-title fade-up">What I can build for you</h2>
+    <p class="section-subtitle fade-up">From quick automation scripts to full AI agent deployments.</p>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="icon">🤖</div>
-        <h3>Telegram Bot Development</h3>
-        <p>AI-powered Telegram bots with natural language understanding, order management, customer support, and admin dashboards. Built with Python and the Hermes Agent framework.</p>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(102,126,234,0.15);">🤖</div>
+        <h3>Telegram / Discord Bot</h3>
+        <p>Custom AI-powered bots with natural language understanding, auto-reply, order management, and admin tools.</p>
+        <div class="service-price">From $50</div>
       </div>
-      <div class="service-card">
-        <div class="icon">🐍</div>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(52,211,153,0.15);">🐍</div>
         <h3>Python Automation</h3>
-        <p>Custom scripts for web scraping, data processing, report generation, email automation, and social media posting. Clean, documented, production-ready code.</p>
+        <p>Custom scripts for data processing, file management, API integration, and business workflow automation.</p>
+        <div class="service-price">From $30</div>
       </div>
-      <div class="service-card">
-        <div class="icon">🧩</div>
-        <h3>AI Integration</h3>
-        <p>Connect your business to AI — OpenAI, Claude, or free open-source models. Chatbots, content generation, data analysis, and intelligent workflows.</p>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(251,191,36,0.15);">🕷</div>
+        <h3>Web Scraping &amp; Data</h3>
+        <p>Structured data extraction from any website. Clean CSV/JSON output, scheduled runs, proxy support.</p>
+        <div class="service-price">From $40</div>
       </div>
-      <div class="service-card">
-        <div class="icon">📱</div>
-        <h3>Android/Termux AI Deployment</h3>
-        <p>Run AI agents on Android phones via Termux. No server costs, no cloud fees. Perfect for personal assistants and small business automation.</p>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(34,211,238,0.15);">🧠</div>
+        <h3>AI Agent Development</h3>
+        <p>Custom AI agents using Hermes, Claude, or GPT. Autonomous task execution, memory, skill systems.</p>
+        <div class="service-price">From $200</div>
       </div>
-      <div class="service-card">
-        <div class="icon">⚡</div>
-        <h3>Custom Scripts & Tools</h3>
-        <p>From simple automations to full business systems. File processing, API integrations, database management, and scheduled task pipelines.</p>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(248,113,113,0.15);">📱</div>
+        <h3>Android/Termux AI Setup</h3>
+        <p>Full AI agent deployment on mobile. Remote access, cron scheduling, monitoring — all from your phone.</p>
+        <div class="service-price">From $100</div>
       </div>
-      <div class="service-card">
-        <div class="icon">🔧</div>
-        <h3>Consulting & Setup</h3>
-        <p>Need help setting up an AI agent or automation system? I'll guide you through the entire process and hand over a working system.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- DIGITAL PRODUCTS -->
-  <section id="products">
-    <h2>Digital Products</h2>
-    <div class="products-grid">
-      <div class="product-card">
-        <div class="icon">📱</div>
-        <h3>AI Agent on Android Guide</h3>
-        <p style="color:#999; font-size:0.9rem;">Complete guide to running Hermes Agent on your Android phone via Termux. No computer needed.</p>
-        <div class="price">$19<span>/one-time</span></div>
-        <ul>
-          <li>Step-by-step Termux setup</li>
-          <li>Hermes Agent installation</li>
-          <li>Free AI model configuration</li>
-          <li>Telegram bot integration</li>
-          <li>Battery & storage optimization</li>
-          <li>Troubleshooting guide</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Get It</a>
-      </div>
-      <div class="product-card">
-        <div class="icon">🤖</div>
-        <h3>Telegram Bot Templates</h3>
-        <p style="color:#999; font-size:0.9rem;">Pre-built Telegram bot templates. Customize and deploy in minutes.</p>
-        <div class="price">$49<span>/template</span></div>
-        <ul>
-          <li>Customer support bot</li>
-          <li>Order management bot</li>
-          <li>AI chatbot template</li>
-          <li>Full source code included</li>
-          <li>Setup documentation</li>
-          <li>30 days support</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary" style="display:inline-block; margin-top:1rem;">Get It</a>
+      <div class="service-card fade-up">
+        <div class="service-icon" style="background: rgba(118,75,162,0.15);">⚡</div>
+        <h3>Custom Development</h3>
+        <p>Have a unique project? Let's talk. From browser extensions to full-stack web apps.</p>
+        <div class="service-price">From $50</div>
       </div>
     </div>
   </section>
 
-  <!-- TECH STACK -->
-  <section id="tech">
-    <h2>Tech Stack</h2>
-    <div class="tech-grid">
-      <span class="tech-tag">Python</span>
-      <span class="tech-tag">Telegram Bot API</span>
-      <span class="tech-tag">OpenAI API</span>
-      <span class="tech-tag">Claude API</span>
-      <span class="tech-tag">Hermes Agent</span>
-      <span class="tech-tag">Termux</span>
-      <span class="tech-tag">Android ARM64</span>
-      <span class="tech-tag">Linux</span>
-      <span class="tech-tag">Git</span>
-      <span class="tech-tag">Web Scraping</span>
-      <span class="tech-tag">SQLite</span>
-      <span class="tech-tag">REST APIs</span>
-      <span class="tech-tag">Node.js</span>
-      <span class="tech-tag">Docker</span>
-      <span class="tech-tag">Cron Jobs</span>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-label">// 04 — Open Source</div>
+    <h2 class="section-title fade-up">Featured projects</h2>
+    <p class="section-subtitle fade-up">Open-source work that showcases my skills and commitment.</p>
+    <div class="projects-grid">
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <h3>🔬 hermes-agent fork</h3>
+          <span class="stars">⭐ 0</span>
+        </div>
+        <div class="project-body">
+          <p>Customized NousResearch Hermes Agent optimized for Android/Termux ARM64. Active contributor with open PR for profiling module (998 lines).</p>
+          <span class="project-lang"><span class="lang-dot" style="background: #3572A5;"></span> Python</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/alaamohanad169-ship-it/hermes-agent">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <h3>🌐 monetize-site</h3>
+          <span class="stars">⭐ 0</span>
+        </div>
+        <div class="project-body">
+          <p>Professional portfolio and freelance landing page with dark theme, animations, and responsive design. Built to convert.</p>
+          <span class="project-lang"><span class="lang-dot" style="background: #e34c26;"></span> HTML/CSS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/alaamohanad169-ship-it/monetize-site">View on GitHub →</a>
+          <a href="https://alaamohanad169-ship-it.github.io/monetize-site/">Live Demo →</a>
+        </div>
+      </div>
+      <div class="project-card fade-up">
+        <div class="project-header">
+          <h3>🧩 codexskills</h3>
+          <span class="stars">⭐ 0</span>
+        </div>
+        <div class="project-body">
+          <p>Collection of AI agent skills and automation plugins. Open-source, community-friendly. MIT licensed.</p>
+          <span class="project-lang"><span class="lang-dot" style="background: #3572A5;"></span> Python</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/alaamohanad169-ship-it/codexskills">View on GitHub →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section>
+    <div class="stats-row fade-up">
+      <div class="stat-card">
+        <div class="stat-number">5+</div>
+        <div class="stat-label">Public Repos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">998</div>
+        <div class="stat-label">Lines in Open PR</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Open-Source Contributions</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Agent Uptime</div>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact-section">
-    <h2>Hire Me</h2>
-    <p>I'm available for freelance work. Message me on any platform below.</p>
-    <div class="platform-links">
-      <a href="https://github.com/alaamohanad169-ship-it" class="platform-link" target="_blank">
-        🐙 GitHub
-      </a>
-      <a href="https://alaamohanad169-ship-it.github.io/monetize-site/" class="platform-link" target="_blank">
-        🌐 Portfolio
-      </a>
+    <div class="section-label">// 05 — Get In Touch</div>
+    <h2 class="section-title fade-up">Let's build something together</h2>
+    <p class="section-subtitle fade-up" style="margin: 0 auto 2rem;">I'm available for freelance projects, collaborations, and open-source contributions.</p>
+    <div class="contact-grid fade-up">
+      <a href="https://github.com/alaamohanad169-ship-it" class="contact-link">🐙 GitHub</a>
+      <a href="mailto:alaamohanad169-ship-it@users.noreply.github.com" class="contact-link">📧 Email</a>
     </div>
-    <p style="margin-top:2rem; color:#666; font-size:0.9rem;">
-      Based in Egypt 🇪 Available worldwide • Remote only
-    </p>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 Alaa Mohanad. Built with ❤️ on Android + Termux.</p>
-    <p style="margin-top:0.5rem;">Hermes Agent is open-source by NousResearch (MIT License).</p>
+    <p>Built with <span class="heart">❤️</span> on Android/Termux in Alexandria, Egypt 🇪🇬</p>
+    <p style="margin-top: 0.5rem;">&copy; 2026 Alaa Mohanad — Spider-Verse</p>
   </footer>
 
+  <script>
+    // PARTICLES
+    const pc = document.getElementById('particles');
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.top = Math.random() * 100 + '%';
+      p.style.animationDuration = (15 + Math.random() * 25) + 's';
+      p.style.animationDelay = (-Math.random() * 20) + 's';
+      p.style.opacity = 0.1 + Math.random() * 0.4;
+      pc.appendChild(p);
+    }
+
+    // TYPING EFFECT
+    const phrases = [
+      'AI Agent Developer',
+      'Python Automation Engineer',
+      'Telegram Bot Builder',
+      'Open Source Contributor',
+      'Android/Termux Power User',
+      'Egypt 🇪🇬 → The World 🌍'
+    ];
+    let pi = 0, ci = 0, del = false;
+    const el = document.getElementById('typing');
+    function type() {
+      const phrase = phrases[pi];
+      if (del) { ci--; } else { ci++; }
+      el.innerHTML = phrase.substring(0, ci) + '<span class="typing-cursor"></span>';
+      if (!del && ci === phrase.length) { del = true; setTimeout(type, 2000); return; }
+      if (del && ci === 0) { del = false; pi = (pi + 1) % phrases.length; setTimeout(type, 500); return; }
+      setTimeout(type, del ? 40 : 80);
+    }
+    setTimeout(type, 1000);
+
+    // FADE-UP ON SCROLL
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // SCROLL-TRIGGERED NAV
+    window.addEventListener('scroll', () => {
+      document.querySelector('.nav').style.background = window.scrollY > 50 ? 'rgba(10,10,15,0.95)' : 'rgba(10,10,15,0.8)';
+    });
+  </script>
 </body>
 </html>
